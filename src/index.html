@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 data-cy="header">Hello User</h1>
+    <form id="r-form" data-cy="registration-form">
+        <input type="text" name="email" data-cy="email">
+        <input type="password" data-cy="password">
+        <input type="submit" value="submit" data-cy="submit">
+    </form>
+    <div id="confirmation-message" data-cy="confirmation-message"></div>
+
+<script>
+    const form = document.getElementById('r-form')
+    const messageNode = document.getElementById('confirmation-message')
+    form.addEventListener("submit", event => {
+        event.preventDefault() // prevents default = reload page
+        if(form.children.email.value === '') {
+            messageNode.innerHTML = '<h2>You need to fill in your email</h2>'
+        } else {
+            messageNode.innerHTML = '<h2>Thank you for registering</h2>'
+        }
+        
+    })
+</script>
+
+</body>
+</html>
